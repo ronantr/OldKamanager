@@ -1,0 +1,21 @@
+services:
+  nodejs:
+    image: node:latest
+    volumes:
+      - ./server:/server
+    ports:
+      - 4001:4001
+    command: npm start
+  reactjs:
+    image: node:latest
+    volumes:
+      - ./client:/client
+    ports:
+      - 3000:3000
+    command: npm start
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - ./data:/data/db
+    ports:
+      - 27017:27017
